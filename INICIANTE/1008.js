@@ -7,5 +7,5 @@ var vh = parseFloat(lines.shift()).toFixed(2);
 var salary = parseFloat(ht * vh).toFixed(2);
 
 
-console.log("NUMBER = " + number)
+console.log("NUMBER = " + number);
 console.log("SALARY = U$ " + salary);
