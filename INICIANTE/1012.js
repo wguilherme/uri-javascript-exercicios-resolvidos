@@ -9,7 +9,7 @@ e) a área do retângulo que tem lados A e B.
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
 
-var valores = lines.shift().split('');
+var valores = lines.shift().split(' ');
 var A = parseFloat(valores[0]);
 var B = parseFloat(valores[1]);
 var C = parseFloat(valores[2]);
@@ -19,7 +19,7 @@ var pi = 3.14159;
 var areaTriangulo = (A*C)/2;
 var areaCirculo = pi * Math.pow(C, 2);
 var areaTrapezio = ((A+B)/2) * C;
-var areaQuadrado = Math.pow(B, 2);
+var areaQuadrado = B*B;
 var areaRetangulo = A*B;
 
 console.log("TRIANGULO: " + parseFloat(areaTriangulo).toFixed(3));
