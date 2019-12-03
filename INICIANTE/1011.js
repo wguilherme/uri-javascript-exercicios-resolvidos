@@ -9,6 +9,6 @@ var lines = input.split('\n');
 var raio = parseFloat(lines.shift()).toFixed(2);
 var pi = 3.14159;
 
-var volume = (4/3) * pi * (raio**3);
+var volume = (4/3) * pi * Math.pow(raio, 3);
 
 console.log("VOLUME = " + parseFloat(volume).toFixed(3));
