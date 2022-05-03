@@ -1,46 +1,24 @@
 const input = require('fs').readFileSync('/dev/stdin', 'utf8');
 const lines = input.split('\n');
 
-var entrada = lines.shift();
-entrada = parseFloat(entrada).toFixed(2);
+values = parseFloat(lines).toFixed(2);
 
-var notas = [100, 50, 20, 10, 5, 2, 1, 0.5, 0.25, 0.1, 0.05, 0.01];
+var bills = [100, 50, 20, 10, 5, 2];
+var coins = [1, 0.5, 0.25, 0.1, 0.05, 0.01];
 
-var head = {
-   notas: {
-      titulo: "NOTAS:",
-      apareceu: false
-   },
-   moedas: {
-      titulo: "MOEDAS:",
-      apareceu: false
-   }
-}
+let rest = input
 
-
-
-for (var nota of notas) {
-
- 
- 
-  var saida = Math.trunc(entrada / nota);
-
-  if (nota >= 2){
-   if (head.notas.apareceu === false){
-      console.log(head.notas.titulo)
-      head.notas.apareceu = true;
-      }
-     console.log(`${saida} nota(s) de R$ ${nota.toFixed(2)}`);
+bills.map(bill => {
+  if (rest >= bill) {
+    let qtd = Math.floor(rest / bill);
+    rest = rest % bill;
+    console.log(`${qtd} nota(s) de R$ ${bill.toFixed(2)}`);
+  }
+  if (rest >= coins) {
+    let qtd = Math.floor(rest / coins);
+    rest = rest % coins;
+    console.log(`${qtd} nota(s) de R$ ${coins.toFixed(2)}`);
   }
 
-  else if (nota < 2) {
-   if (head.moedas.apareceu === false){
-      console.log(head.moedas.titulo)
-      head.moedas.apareceu = true;
-   }
-   console.log(`${saida} moeda(s) de R$ ${nota.toFixed(2)}`);
-  }
-  
-  entrada = entrada % nota;
-  if (nota < 2) {tipo = "moeda"}
-}
+
+})
